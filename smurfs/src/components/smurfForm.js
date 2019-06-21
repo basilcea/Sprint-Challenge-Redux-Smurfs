@@ -1,5 +1,6 @@
 import React from 'react';
-
+import {addSmurf} from '../actions/index';
+import {connect} from 'react-redux';
 
 class SmurfForm extends React.Component{
     nameRef = React.createRef();
@@ -18,6 +19,7 @@ class SmurfForm extends React.Component{
     };
     render(){
         return(
+
             <form onSubmit={e => this.addSmurf(e)}>
             <h3>Add Smurf</h3>
             <input ref={this.nameRef} type='text' placeholder ='Name' />
@@ -29,4 +31,7 @@ class SmurfForm extends React.Component{
         )
     }
 }
-export default SmurfForm
+export default connect(
+    null,
+    {addSmurf}
+  )(SmurfForm);

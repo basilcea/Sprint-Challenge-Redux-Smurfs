@@ -1,10 +1,12 @@
 import React from "react";
 import Smurf from "./smurf";
+import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
+import {deleteSmurf, getSmurfs} from '../actions';
 
 class SmurfList extends React.Component {
   render() {
-    const smurfs = this.props.smurfs;
+    const {smurfs} = this.props;
     return (
       <div>
         {smurfs.map(smurf => {
@@ -27,4 +29,13 @@ class SmurfList extends React.Component {
     );
   }
 }
-export default SmurfList;
+const mapStateToProps=(state) =>{
+    return({
+        smurfs: state.smurfs
+    })
+   
+}
+export default connect(
+    mapStateToProps,
+    {deleteSmurf, getSmurfs}
+  )(SmurfList);
