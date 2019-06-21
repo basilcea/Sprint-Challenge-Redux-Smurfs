@@ -16,10 +16,10 @@ class SmurfList extends React.Component {
                 age={smurf.age}
                 height={smurf.height}
               />
-              <button Onclick={() => this.props.updateSmurf(smurf.id)}>
+              <button onClick={() => this.props.updateSmurf(smurf.id)}>
                 Update
               </button>
-              <button Onclick={() => this.props.deleteSmurf(smurf.id)}>
+              <button onClick={() => this.props.deleteSmurf(smurf.id)}>
                 Delete
               </button>
             </div>
