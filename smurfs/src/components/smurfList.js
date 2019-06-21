@@ -1,6 +1,6 @@
 import React from "react";
 import Smurf from "./smurf";
-import {connect} from 'react-redux';
+import {Link} from 'react-router-dom';
 
 class SmurfList extends React.Component {
   render() {
@@ -16,9 +16,7 @@ class SmurfList extends React.Component {
                 age={smurf.age}
                 height={smurf.height}
               />
-              <button onClick={() => this.props.updateSmurf(smurf.id)}>
-                Update
-              </button>
+             <Link to ={`/smurfs/${smurf.id}/update`}>Update</Link>
               <button onClick={() => this.props.deleteSmurf(smurf.id)}>
                 Delete
               </button>

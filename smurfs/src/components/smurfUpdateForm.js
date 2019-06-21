@@ -1,32 +1,32 @@
 import React from 'react';
 
 
-class SmurfForm extends React.Component{
+class UpdateForm extends React.Component{
     nameRef = React.createRef();
     ageRef = React.createRef();
     heightRef = React.createRef();
 
-    addSmurf= (e) => {
+    updateSmurf= (e) => {
         e.preventDefault
         const data = {
             name: this.nameRef.current.value,
             age: this.ageRef.current.value,
             height: this.heightRef.current.value,
         }
-        this.props.addSmurf(data);
+        this.props.updateSmurf(data);
      
     };
     render(){
         return(
-            <form onSubmit={e => this.addSmurf(e)}>
-            <h3>Add Smurf</h3>
+            <form onSubmit={e => this.updateSmurf(e)}>
+            <h3>Update Smurfs</h3>
             <input ref={this.nameRef} type='text' placeholder ='Name' />
             <input ref={this.ageRef} type='text' placeholder='Age'/>
             <input ref={this.heightRef} type='text' placeholder='Height'/>
-            <button>Add Smurf</button>
+            <button>Update Smurf</button>
             </form>
 
         )
     }
 }
-export default SmurfForm
+export default UpdateForm

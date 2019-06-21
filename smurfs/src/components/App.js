@@ -4,6 +4,8 @@ import {connect} from 'react-redux';
 import * as actions from '../actions/index';
 import SmurfList from '../components/smurfList';
 import SmurfForm from '../components/smurfForm';
+import UpdateForm from '../components/smurfUpdateForm';
+import {Route} from 'react-router-dom';
 /*
  to wire this component up you're going to need a few things.
  I'll let you do this part on your own. 
@@ -17,20 +19,38 @@ class App extends Component {
     console.log(this.props)
   }
   render() {
- 
+
     const smurfs = this.props.smurfs
     return (
       <div className="App">
         <h1>SMURFS! 2.0 W/ Redux</h1>
         <div>Welcome to your Redux version of Smurfs!</div>
-         <SmurfForm 
-         addSmurf = {this.props.addSmurf} />
-        
-        <SmurfList
-         smurfs ={smurfs}
-         updateSmurf = {this.props.updateSmurf}
-         deleteSmurf = {this.props.deleteSmurf}
+        <Route exact
+        path='/smurfs'
+        render = {props =>(
+          <div>    <SmurfForm 
+          addSmurf = {this.props.addSmurf} />
+
+          <SmurfList
+          smurfs ={smurfs}
+          deleteSmurf = {this.props.deleteSmurf}
+          {...props}
+         /></div>
+       
+
+        )}
         />
+        <Route
+        path="/smurfs/:id/update"
+        render={props => (
+          <UpdateForm
+             smurfs={smurfs}
+             updateSmurf={this.updateSmurf}
+            {...props}
+          />
+        )}
+      />
+     
       </div>
     );
   }
