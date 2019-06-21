@@ -40,7 +40,7 @@ export const getSmurfs = () => async dispatch =>{
   dispatch({type: FETCH});
   const AxiosData = await axios.get('http://localhost:3333/smurfs')
   try{
-    dispatch(success(AxiosData.data.results))
+    dispatch(success(AxiosData.data))
   }
   catch(err){
     dispatch(failure(AxiosData.statusText))
@@ -57,7 +57,7 @@ export const addSmurf = (data) => async dispatch => {
   }
 }
 
-export const updateSmurfs = (id , data) => async dispatch => {
+export const updateSmurf = (id , data) => async dispatch => {
   dispatch ({type: UPDATE});
 
   try{
