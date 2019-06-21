@@ -1,7 +1,7 @@
 /*
   Be sure to import in all of the action types from `../actions`
 */
-import * as types from "./actions/index";
+import * as types from  '../actions/index'
 
 /*
  Your initial/default state for this project could *Although does not have to* look a lot like this
@@ -44,7 +44,7 @@ const rootReducer = (state = initialState, action) => {
         deletingSmurf: false,
         error: null
       };
-    case types.SUCCESS:
+    case types.FAILURE:
       return {
         ...state,
         error: action.payload,
