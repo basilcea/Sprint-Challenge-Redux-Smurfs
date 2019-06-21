@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import {getSmurfs} from "../actions/index";
 import SmurfList from "../components/smurfList";
 import SmurfForm from "../components/smurfForm";
-import UpdateForm from "../components/smurfUpdateForm";
 import { Route } from "react-router-dom";
 /*
  to wire this component up you're going to need a few things.
@@ -40,9 +39,9 @@ class App extends Component {
           )}
         />
         <Route
-          path="/smurfs/:id/update"
+          exact path="/smurfs/update/:id"
           render={props => (
-            <UpdateForm
+            <SmurfForm
             // smurfs={smurfs}
             // updateSmurf={this.updateSmurf}
             {...props}

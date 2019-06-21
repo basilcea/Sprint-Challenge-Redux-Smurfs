@@ -18,7 +18,7 @@ class SmurfList extends React.Component {
                 age={smurf.age}
                 height={smurf.height}
               />
-             <Link to ={`/smurfs/${smurf.id}/update`}>Update</Link>
+             <Link to ={`/smurfs/update/${smurf.id}`}>Update</Link>
               <button onClick={() => this.props.deleteSmurf(smurf.id)}>
                 Delete
               </button>

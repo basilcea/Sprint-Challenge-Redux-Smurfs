@@ -1,12 +1,15 @@
 import React from 'react';
-
+import {getSmurfs , updateSmurf} from '../actions';
+import {connect} from 'react-redux';
 
 class UpdateForm extends React.Component{
     nameRef = React.createRef();
     ageRef = React.createRef();
     heightRef = React.createRef();
-   
-    debugger
+   componentDidMount(){
+       this.props.getSmurfs()
+
+   }
     updateSmurf= (e) => {
         e.preventDefault()
         const data = {
